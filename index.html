@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClipMind AI – Free AI Video Clipper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">✂️</div>
+      <div>
+        <h1 class="brand">ClipMind AI</h1>
+        <p class="tagline">Free AI Video Clipper</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge">100% Free</span>
+      <span class="badge">No Login</span>
+      <span class="badge">Runs Locally</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h2 class="hero-title">Turn Long Videos Into<br/><span class="accent">Viral Highlights</span></h2>
+      <p class="hero-sub">AI detects your best moments, cuts 9:16 clips, and adds captions — automatically.</p>
+    </section>
+
+    <!-- Upload Section -->
+    <section class="card upload-section" id="uploadSection">
+      <div class="upload-zone" id="dropZone">
+        <div class="upload-icon">📹</div>
+        <h3>Drop your video here</h3>
+        <p>MP4, MOV, AVI, MKV, WEBM — up to 500MB</p>
+        <label class="btn btn-primary" for="fileInput">Choose Video</label>
+        <input type="file" id="fileInput" accept=".mp4,.mov,.avi,.mkv,.webm" hidden/>
+      </div>
+
+      <!-- Upload Progress -->
+      <div class="progress-wrap" id="uploadProgress" style="display:none">
+        <div class="progress-label">
+          <span>Uploading...</span>
+          <span id="uploadPct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar" id="uploadBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processing Section -->
+    <section class="card processing-section" id="processingSection" style="display:none">
+      <div class="process-header">
+        <div class="spinner"></div>
+        <div>
+          <h3 id="stepLabel">Processing...</h3>
+          <p id="stepSub">This may take a few minutes depending on video length</p>
+        </div>
+      </div>
+
+      <div class="progress-label">
+        <span>Overall Progress</span>
+        <span id="processPct">0%</span>
+      </div>
+      <div class="progress-bar-bg large">
+        <div class="progress-bar" id="processBar"></div>
+      </div>
+
+      <div class="steps-list" id="stepsList">
+        <div class="step-item" data-step="10">📤 Extracting Audio</div>
+        <div class="step-item" data-step="25">🎙️ Transcribing Speech</div>
+        <div class="step-item" data-step="50">🧠 AI Analysis</div>
+        <div class="step-item" data-step="65">✂️ Cutting Clips</div>
+        <div class="step-item" data-step="90">🎞️ Converting to 9:16</div>
+        <div class="step-item" data-step="100">✅ Done!</div>
+      </div>
+    </section>
+
+    <!-- Error Section -->
+    <section class="card error-section" id="errorSection" style="display:none">
+      <div class="error-icon">⚠️</div>
+      <h3>Something went wrong</h3>
+      <p id="errorMsg">An error occurred during processing.</p>
+      <button class="btn btn-outline" onclick="resetApp()">Try Again</button>
+    </section>
+
+    <!-- Results Section -->
+    <section id="resultsSection" style="display:none">
+      <div class="results-header">
+        <h2>Your AI Clips Are Ready 🎉</h2>
+        <p>AI detected and cut the most engaging moments from your video</p>
+        <button class="btn btn-outline small" onclick="resetApp()">Process Another Video</button>
+      </div>
+
+      <div class="clips-grid" id="clipsGrid"></div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-section" id="howSection">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>Upload</h4>
+          <p>Upload any MP4, MOV, or other video format up to 500MB</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>AI Analyzes</h4>
+          <p>Whisper transcribes speech, AI scores segments for excitement</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>Clips Cut</h4>
+          <p>Top 3 highlights are cut into vertical 9:16 clips with captions</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h4>Download</h4>
+          <p>Download your clips and share directly to social media</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>ClipMind AI — 100% Free, Local, No Login Required</p>
+    <p class="footer-sub">Built with FFmpeg + Whisper + Node.js</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
